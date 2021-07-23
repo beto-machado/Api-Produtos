@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  has_many :related_products
+
   paginates_per 20
   max_paginates_per 100
 
@@ -8,4 +10,5 @@ class Product < ApplicationRecord
     validates :price
     validates :quantity
   end
+
 end

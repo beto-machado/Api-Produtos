@@ -6,16 +6,14 @@ class ProductsController < ApplicationController
   end
 
   def index
-    page_number = params[:page].try(:[], :number)
-    per_page = params[:page].try(:[], :size)
+    page_number = params.dig(:page, :number)
+    per_page = params.dig(:page, :size)
 
     @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
-
-    @products = @products.order.page(page_number).per(per_page)
+    @products = @q.result.page(page_number).per(per_page)
+  end
 
   def show
-    @products = Product.find_by_sub_domain params[:id]
   end
 
   def create
@@ -47,6 +45,9 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :quantity)
+    params.require(:product).permit(
+      :name, :description, :price, :quantity,
+      :related_products_attributes [:name, :price]
+    )
   end
 end

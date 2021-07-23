@@ -11,4 +11,11 @@ Product.create!(
   end
 )
 
-
+RelatedProduct.create!(
+  (1..500).map do
+    {
+      name: Faker::Commerce.unique.product_name,
+      price: Faker::Commerce.price,
+    }
+  end
+)
