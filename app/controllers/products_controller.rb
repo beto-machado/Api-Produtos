@@ -6,14 +6,17 @@ class ProductsController < ApplicationController
   end
 
   def index
-    page_number = params.dig(:page, :number)
-    per_page = params.dig(:page, :size)
+    if search.present?
+      @products = Product.search(search).sorted.page(params[:page])
+    else
+      @products = Product.sorted.page(params[:page])
+    end
 
-    @q = Product.ransack(params[:q])
-    @products = @q.result.page(page_number).per(per_page)
+    paginate json: @products, except: [:created_at, :updated_at]
   end
 
   def show
+    render json: @products, except: [:created_at, :updated_at]
   end
 
   def create
@@ -47,7 +50,10 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(
       :name, :description, :price, :quantity,
-      :related_products_attributes [:name, :price]
     )
+  end
+
+  def search
+    params[:search]
   end
 end

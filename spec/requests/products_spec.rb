@@ -20,8 +20,6 @@ RSpec.describe '/products', type: :request do
             description: product.description,
             price: product.price.as_json,
             quantity: product.quantity,
-            created_at: product.created_at.as_json,
-            updated_at: product.updated_at.as_json
           }
         ]
       )
@@ -43,8 +41,6 @@ RSpec.describe '/products', type: :request do
           description: product.description,
           price: product.price.as_json,
           quantity: product.quantity,
-          created_at: product.created_at.as_json,
-          updated_at: product.updated_at.as_json
         )
       end
     end

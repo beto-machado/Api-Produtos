@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_many :related_products
+  include PgSearch::Model
 
   paginates_per 20
   max_paginates_per 100
@@ -11,4 +11,11 @@ class Product < ApplicationRecord
     validates :quantity
   end
 
+  scope :sorted, ->{ order(name: :asc) }
+
+  pg_search_scope :search,
+                  against: [
+                    [:name, 'A'],
+                    [:price, 'A'],
+                  ]
 end

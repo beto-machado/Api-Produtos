@@ -68,6 +68,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    api-pagination (5.0.0)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -119,11 +120,12 @@ GEM
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.7)
-    nokogiri (1.11.7-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.11.7-x86_64-linux)
       racc (~> 1.4)
     pg (1.2.3)
+    pg_search (2.3.5)
+      activerecord (>= 5.2)
+      activesupport (>= 5.2)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -162,10 +164,6 @@ GEM
       rake (>= 0.13)
       thor (~> 1.0)
     rake (13.0.3)
-    ransack (2.4.2)
-      activerecord (>= 5.2.4)
-      activesupport (>= 5.2.4)
-      i18n
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -210,6 +208,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  api-pagination
   bootsnap (>= 1.4.4)
   byebug
   database_cleaner-active_record
@@ -219,10 +218,10 @@ DEPENDENCIES
   kaminari
   listen (~> 3.3)
   pg (~> 1.1)
+  pg_search
   pry-rails
   puma (~> 5.0)
   rails (~> 6.1.4)
-  ransack
   rspec-json_expectations
   rspec-rails
   shoulda-matchers (~> 4.0)
@@ -230,7 +229,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 3.0.2p107
 
 BUNDLED WITH
-   2.2.21
+   2.2.22
