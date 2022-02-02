@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b7752e4b-9c7f-4829-b7b6-7c29b242ca89",
+		"_postman_id": "8dd6e379-c283-4cf6-b767-3e0c2d38e568",
 		"name": "Api-Product",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/products?search=5.02&page=1",
+					"raw": "http://localhost:3000/products?search=&page=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -23,7 +23,7 @@
 					"query": [
 						{
 							"key": "search",
-							"value": "5.02",
+							"value": "",
 							"description": "buscar por nome ou preço"
 						},
 						{
@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Bola\",\r\n    \"description\": \"futebol\",\r\n    \"price\": \"20.00\",\r\n    \"quantity\": \"20\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Bola\",\r\n    \"description\": \"Basquete\",\r\n    \"price\": \"20.00\",\r\n    \"quantity\": \"20\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -61,172 +61,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "errors",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Bola\",\r\n    \"description\": \"futebol\",\r\n    \"price\": \"20.00\",\r\n    \"quantity\": 20\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/products",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"products"
-							]
-						}
-					},
-					"status": "Unprocessable Entity",
-					"code": 422,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "X-Frame-Options",
-							"value": "SAMEORIGIN"
-						},
-						{
-							"key": "X-XSS-Protection",
-							"value": "1; mode=block"
-						},
-						{
-							"key": "X-Content-Type-Options",
-							"value": "nosniff"
-						},
-						{
-							"key": "X-Download-Options",
-							"value": "noopen"
-						},
-						{
-							"key": "X-Permitted-Cross-Domain-Policies",
-							"value": "none"
-						},
-						{
-							"key": "Referrer-Policy",
-							"value": "strict-origin-when-cross-origin"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Cache-Control",
-							"value": "no-cache"
-						},
-						{
-							"key": "X-Request-Id",
-							"value": "ee7c8a13-e017-4ea8-921c-344a520ef679"
-						},
-						{
-							"key": "X-Runtime",
-							"value": "0.302909"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"errors\": [\n        \"Name has already been taken\"\n    ]\n}"
-				},
-				{
-					"name": "create",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Camisa\",\r\n    \"description\": \"futebol\",\r\n    \"price\": \"20.00\",\r\n    \"quantity\": 20\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/products",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"products"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "X-Frame-Options",
-							"value": "SAMEORIGIN"
-						},
-						{
-							"key": "X-XSS-Protection",
-							"value": "1; mode=block"
-						},
-						{
-							"key": "X-Content-Type-Options",
-							"value": "nosniff"
-						},
-						{
-							"key": "X-Download-Options",
-							"value": "noopen"
-						},
-						{
-							"key": "X-Permitted-Cross-Domain-Policies",
-							"value": "none"
-						},
-						{
-							"key": "Referrer-Policy",
-							"value": "strict-origin-when-cross-origin"
-						},
-						{
-							"key": "Location",
-							"value": "http://localhost:3000/products/502"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "ETag",
-							"value": "W/\"7343c38e111e57373cc04b189af8eb57\""
-						},
-						{
-							"key": "Cache-Control",
-							"value": "max-age=0, private, must-revalidate"
-						},
-						{
-							"key": "X-Request-Id",
-							"value": "34f3ae39-fabf-41a8-b7ac-31ebb84af263"
-						},
-						{
-							"key": "X-Runtime",
-							"value": "0.024313"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"id\": 502,\n    \"name\": \"Camisa\",\n    \"description\": \"futebol\",\n    \"price\": \"20.0\",\n    \"quantity\": 20,\n    \"created_at\": \"2022-01-31T19:46:17.851Z\",\n    \"updated_at\": \"2022-01-31T19:46:17.851Z\"\n}"
-				}
-			]
+			"response": []
 		},
 		{
 			"name": "Update",
@@ -243,7 +78,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/products/501",
+					"raw": "http://localhost:3000/products/101",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -251,7 +86,7 @@
 					"port": "3000",
 					"path": [
 						"products",
-						"501"
+						"101"
 					]
 				}
 			},

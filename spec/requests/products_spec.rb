@@ -75,8 +75,6 @@ RSpec.describe '/products', type: :request do
           description: valid_attributes[:description],
           price: valid_attributes[:price].to_d.as_json,
           quantity: valid_attributes[:quantity],
-          created_at: a_kind_of(String),
-          updated_at: a_kind_of(String)
         )
       end
     end
@@ -122,8 +120,6 @@ RSpec.describe '/products', type: :request do
           description: product.description,
           price: new_attributes[:price].as_json,
           quantity: product.quantity,
-          created_at: product.created_at.as_json,
-          updated_at: product.reload.updated_at.as_json
         )
       end
     end

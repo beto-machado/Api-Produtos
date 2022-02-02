@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    render json: @products, except: [:created_at, :updated_at]
+    render json: @product, except: [:created_at, :updated_at]
   end
 
   def create

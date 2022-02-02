@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_07_05_230338) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.decimal "price", precision: 5, scale: 2

@@ -1,7 +1,7 @@
 Faker::Config.locale = 'pt-BR'
 
 Product.create!(
-  (1..500).map do
+  (1..100).map do
     {
       name: Faker::Commerce.unique.product_name,
       description: Faker::Lorem.sentences.join,
